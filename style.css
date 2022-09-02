@@ -1,0 +1,9 @@
+section{
+    display: flex;
+}
+.bannerText{
+    width: 50%;
+}
+.bannerImage{
+    width: 50%;
+}
