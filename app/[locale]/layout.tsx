@@ -5,8 +5,12 @@ import { geistSans, geistMono, hindSiliguri } from '@/lib/fonts'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { AccentProvider } from '@/components/providers/accent-provider'
 import { NoFlashAccent } from '@/components/providers/no-flash'
+import { Nav } from '@/components/layout/nav'
+import { Footer } from '@/components/layout/footer'
+import { SideRail } from '@/components/layout/side-rail'
+import { EmailRail } from '@/components/layout/email-rail'
 import { getDictionary } from '@/i18n/dictionaries'
-import { isLocale, locales, type Locale } from '@/i18n/config'
+import { isLocale, locales } from '@/i18n/config'
 import { site } from '@/lib/site'
 
 export const dynamicParams = false
@@ -15,9 +19,7 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
 }
 
-export async function generateMetadata({
-  params,
-}: LayoutProps<'/[locale]'>): Promise<Metadata> {
+export async function generateMetadata({ params }: LayoutProps<'/[locale]'>): Promise<Metadata> {
   const { locale } = await params
   if (!isLocale(locale)) return {}
   const dict = await getDictionary(locale)
@@ -65,6 +67,7 @@ export const viewport: Viewport = {
 export default async function LocaleLayout({ children, params }: LayoutProps<'/[locale]'>) {
   const { locale } = await params
   if (!isLocale(locale)) notFound()
+  const dict = await getDictionary(locale)
 
   return (
     <html
@@ -76,22 +79,23 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
       <head>
         <NoFlashAccent />
       </head>
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="bg-background text-foreground flex min-h-full flex-col">
         <ThemeProvider>
           <AccentProvider>
             <a
               href="#main"
-              className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-card focus:px-3 focus:py-2 focus:text-sm focus:shadow"
+              className="focus:bg-card sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:px-3 focus:py-2 focus:text-sm focus:shadow"
             >
-              {/* Skip link label provided by client nav, kept here for SSR */}
-              Skip to content
+              {dict.nav.skipToContent}
             </a>
-            {children}
+            <Nav locale={locale} dict={dict} />
+            <SideRail />
+            <EmailRail />
+            <div className="flex-1">{children}</div>
+            <Footer dict={dict} />
           </AccentProvider>
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-export type LocaleParam = { locale: Locale }

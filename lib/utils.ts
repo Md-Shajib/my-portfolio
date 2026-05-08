@@ -16,7 +16,5 @@ export function formatDate(input: string | Date, locale: string = 'en') {
 }
 
 export function interpolate(template: string, vars: Record<string, string | number>) {
-  return template.replace(/\{\{(\w+)\}\}/g, (_, key) =>
-    String(vars[key] ?? `{{${key}}}`)
-  )
+  return template.replace(/\{\{(\w+)\}\}/g, (_, key) => String(vars[key] ?? `{{${key}}}`))
 }

@@ -9,6 +9,5 @@ export const site = {
   codeforces: 'https://codeforces.com/profile/shajib_2k19',
   leetcode: 'https://leetcode.com/u/Md-Shajib/',
   source: 'https://github.com/Md-Shajib/my-portfolio',
-  publication:
-    'https://doi.org/10.1016/j.dib.2026.112700',
+  publication: 'https://doi.org/10.1016/j.dib.2026.112700',
 } as const
