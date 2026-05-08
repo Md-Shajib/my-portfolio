@@ -44,7 +44,7 @@ export function AccentPicker({ label }: Props) {
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-9 w-9 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent"
+        className="text-muted-foreground hover:bg-accent-soft hover:text-accent inline-flex h-9 w-9 items-center justify-center rounded transition-colors"
       >
         <Palette className="h-4 w-4" />
       </button>
@@ -53,7 +53,7 @@ export function AccentPicker({ label }: Props) {
         <ul
           role="listbox"
           aria-label={label}
-          className="absolute right-0 top-full z-30 mt-2 flex gap-1 rounded-md border border-border bg-card p-2 shadow-lg"
+          className="border-border bg-card absolute top-full right-0 z-30 mt-2 flex gap-1 rounded-md border p-2 shadow-lg"
         >
           {accents.map((a) => (
             <li key={a}>
@@ -66,7 +66,7 @@ export function AccentPicker({ label }: Props) {
                   setAccent(a)
                   setOpen(false)
                 }}
-                className="flex h-7 w-7 items-center justify-center rounded-full ring-offset-2 ring-offset-card transition-transform hover:scale-110"
+                className="ring-offset-card flex h-7 w-7 items-center justify-center rounded-full ring-offset-2 transition-transform hover:scale-110"
                 style={{
                   backgroundColor: swatchHex[a],
                   boxShadow: accent === a ? `0 0 0 2px ${swatchHex[a]}` : undefined,

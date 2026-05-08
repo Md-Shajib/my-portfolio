@@ -6,8 +6,8 @@ type Props = { dict: Dictionary }
 
 export function Footer({ dict }: Props) {
   return (
-    <footer className="border-t border-border/40 py-10">
-      <div className="container-page flex flex-col items-center gap-3 text-center font-mono text-xs text-muted-foreground">
+    <footer className="border-border/40 border-t py-10">
+      <div className="container-page text-muted-foreground flex flex-col items-center gap-3 text-center font-mono text-xs">
         <ul className="flex items-center gap-5 md:hidden">
           {socials.map(({ name, href, icon: Icon }) => (
             <li key={name}>
@@ -16,7 +16,7 @@ export function Footer({ dict }: Props) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={name}
-                className="transition-colors hover:text-accent"
+                className="hover:text-accent transition-colors"
               >
                 <Icon className="h-4 w-4" aria-hidden="true" />
               </a>
@@ -28,7 +28,7 @@ export function Footer({ dict }: Props) {
             href={site.source}
             target="_blank"
             rel="noreferrer"
-            className="transition-colors hover:text-accent"
+            className="hover:text-accent transition-colors"
           >
             {dict.footer.sourceCode}
           </a>

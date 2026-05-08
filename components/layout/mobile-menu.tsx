@@ -36,20 +36,20 @@ export function MobileMenu({ items, resumeHref, resumeLabel, openLabel, closeLab
         aria-label={open ? closeLabel : openLabel}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-9 w-9 items-center justify-center rounded text-foreground hover:bg-accent-soft md:hidden"
+        className="text-foreground hover:bg-accent-soft inline-flex h-9 w-9 items-center justify-center rounded md:hidden"
       >
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
       {open && (
-        <div className="fixed inset-0 top-16 z-30 flex flex-col bg-background/95 backdrop-blur-md md:hidden">
+        <div className="bg-background/95 fixed inset-0 top-16 z-30 flex flex-col backdrop-blur-md md:hidden">
           <ul className="flex flex-col items-center gap-6 p-8 font-mono text-sm">
             {items.map((item, i) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex flex-col items-center gap-1 text-foreground hover:text-accent"
+                  className="text-foreground hover:text-accent flex flex-col items-center gap-1"
                 >
                   <span className="text-accent">{`0${i + 1}.`}</span>
                   <span>{item.label}</span>
@@ -62,7 +62,7 @@ export function MobileMenu({ items, resumeHref, resumeLabel, openLabel, closeLab
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setOpen(false)}
-                className="inline-flex items-center justify-center rounded border border-accent px-4 py-2 text-accent hover:bg-accent-soft"
+                className="border-accent text-accent hover:bg-accent-soft inline-flex items-center justify-center rounded border px-4 py-2"
               >
                 {resumeLabel}
               </a>

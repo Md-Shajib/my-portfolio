@@ -15,14 +15,14 @@ export function SideRail() {
               rel="noreferrer"
               aria-label={name}
               title={name}
-              className="block text-muted-foreground transition-all hover:-translate-y-1 hover:text-accent"
+              className="text-muted-foreground hover:text-accent block transition-all hover:-translate-y-1"
             >
               <Icon className="h-5 w-5" aria-hidden="true" />
             </a>
           </li>
         ))}
       </ul>
-      <div className="h-24 w-px bg-muted-foreground/40" aria-hidden="true" />
+      <div className="bg-muted-foreground/40 h-24 w-px" aria-hidden="true" />
     </aside>
   )
 }

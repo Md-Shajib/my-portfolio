@@ -26,11 +26,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'outline', size = 'md', ...rest }, ref) => (
-    <button
-      ref={ref}
-      className={cn(base, variants[variant], sizes[size], className)}
-      {...rest}
-    />
+    <button ref={ref} className={cn(base, variants[variant], sizes[size], className)} {...rest} />
   )
 )
 Button.displayName = 'Button'
@@ -42,11 +38,7 @@ type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 
 export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   ({ className, variant = 'outline', size = 'md', ...rest }, ref) => (
-    <a
-      ref={ref}
-      className={cn(base, variants[variant], sizes[size], className)}
-      {...rest}
-    />
+    <a ref={ref} className={cn(base, variants[variant], sizes[size], className)} {...rest} />
   )
 )
 ButtonLink.displayName = 'ButtonLink'

@@ -4,16 +4,16 @@ export function EmailRail() {
   return (
     <aside
       aria-label="Email"
-      className="fixed bottom-0 right-6 z-10 hidden flex-col items-center gap-6 md:flex xl:right-10"
+      className="fixed right-6 bottom-0 z-10 hidden flex-col items-center gap-6 md:flex xl:right-10"
     >
       <a
         href={`mailto:${site.email}`}
-        className="font-mono text-xs tracking-widest text-muted-foreground transition-all hover:-translate-y-1 hover:text-accent"
+        className="text-muted-foreground hover:text-accent font-mono text-xs tracking-widest transition-all hover:-translate-y-1"
         style={{ writingMode: 'vertical-rl' }}
       >
         {site.email}
       </a>
-      <div className="h-24 w-px bg-muted-foreground/40" aria-hidden="true" />
+      <div className="bg-muted-foreground/40 h-24 w-px" aria-hidden="true" />
     </aside>
   )
 }

@@ -34,7 +34,7 @@ export function LanguageToggle({ current, label }: Props) {
           /* ignore */
         }
       }}
-      className="inline-flex h-9 items-center gap-1 rounded px-2 font-mono text-xs text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent"
+      className="text-muted-foreground hover:bg-accent-soft hover:text-accent inline-flex h-9 items-center gap-1 rounded px-2 font-mono text-xs transition-colors"
     >
       <Languages className="h-4 w-4" />
       <span aria-hidden="true">{next.toUpperCase()}</span>

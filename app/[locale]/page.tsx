@@ -1,18 +1,31 @@
 import { notFound } from 'next/navigation'
+import { Hero } from '@/components/sections/hero'
+import { About } from '@/components/sections/about'
+import { Experience } from '@/components/sections/experience'
+import { Featured } from '@/components/sections/featured'
+import { Other } from '@/components/sections/other'
+import { Contact } from '@/components/sections/contact'
 import { getDictionary } from '@/i18n/dictionaries'
 import { isLocale } from '@/i18n/config'
+import { getExperience } from '@/data/experience'
+import { getArchiveProjects, getFeaturedProjects } from '@/data/projects'
 
 export default async function HomePage({ params }: PageProps<'/[locale]'>) {
   const { locale } = await params
   if (!isLocale(locale)) notFound()
   const dict = await getDictionary(locale)
+  const experience = getExperience(locale)
+  const featured = getFeaturedProjects(locale)
+  const archive = getArchiveProjects(locale)
 
   return (
-    <main id="main" className="container-page py-24">
-      <p className="text-accent text-sm">{dict.hero.eyebrow}</p>
-      <h1 className="mt-3 text-4xl font-bold md:text-6xl">{dict.hero.name}</h1>
-      <h2 className="text-muted-foreground mt-2 text-2xl md:text-4xl">{dict.hero.headline}</h2>
-      <p className="text-muted-foreground mt-6 max-w-prose">{dict.hero.body}</p>
+    <main id="main">
+      <Hero dict={dict} />
+      <About dict={dict} />
+      <Experience dict={dict} items={experience} />
+      <Featured dict={dict} items={featured} />
+      <Other dict={dict} items={archive} locale={locale} />
+      <Contact dict={dict} locale={locale} />
     </main>
   )
 }

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="MediDhaka project preview">
+  <defs>
+    <linearGradient id="bg-medi" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#112240"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg-medi)"/>
+  <g fill="#64ffda" opacity="0.85" font-family="ui-monospace, monospace">
+    <text x="60" y="80" font-size="20" letter-spacing="4">MEDIDHAKA</text>
+    <text x="60" y="110" font-size="12" fill="#8892b0">healthcare management · placeholder image</text>
+    <rect x="60" y="160" width="320" height="280" rx="8" fill="none" stroke="#64ffda" stroke-opacity="0.5" stroke-dasharray="4 6"/>
+    <rect x="420" y="160" width="320" height="120" rx="8" fill="none" stroke="#64ffda" stroke-opacity="0.5" stroke-dasharray="4 6"/>
+    <rect x="420" y="320" width="320" height="120" rx="8" fill="none" stroke="#64ffda" stroke-opacity="0.5" stroke-dasharray="4 6"/>
+  </g>
+</svg>
