@@ -2,7 +2,11 @@
 
 import { useActionState } from 'react'
 import { useFormStatus } from 'react-dom'
-import { initialContactState, submitContact, type ContactState } from '@/app/[locale]/_actions/contact'
+import {
+  initialContactState,
+  submitContact,
+  type ContactState,
+} from '@/app/[locale]/_actions/contact'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type { Locale } from '@/i18n/config'
 import { cn } from '@/lib/utils'
@@ -44,7 +48,10 @@ export function ContactForm({ locale, dict }: Props) {
     <form action={formAction} className="mx-auto mt-10 max-w-lg space-y-4 text-left">
       <input type="hidden" name="locale" value={locale} />
       {/* Honeypot */}
-      <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="absolute top-auto left-[-10000px] h-px w-px overflow-hidden"
+      >
         <label>
           Company
           <input type="text" name="company" tabIndex={-1} autoComplete="off" />
@@ -52,7 +59,7 @@ export function ContactForm({ locale, dict }: Props) {
       </div>
 
       <div>
-        <label htmlFor="contact-name" className="block font-mono text-xs text-muted-foreground">
+        <label htmlFor="contact-name" className="text-muted-foreground block font-mono text-xs">
           {dict.contact.form.name}
         </label>
         <input
@@ -69,7 +76,7 @@ export function ContactForm({ locale, dict }: Props) {
       </div>
 
       <div>
-        <label htmlFor="contact-email" className="block font-mono text-xs text-muted-foreground">
+        <label htmlFor="contact-email" className="text-muted-foreground block font-mono text-xs">
           {dict.contact.form.email}
         </label>
         <input
@@ -85,7 +92,7 @@ export function ContactForm({ locale, dict }: Props) {
       </div>
 
       <div>
-        <label htmlFor="contact-message" className="block font-mono text-xs text-muted-foreground">
+        <label htmlFor="contact-message" className="text-muted-foreground block font-mono text-xs">
           {dict.contact.form.message}
         </label>
         <textarea

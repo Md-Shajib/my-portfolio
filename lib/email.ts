@@ -8,9 +8,7 @@ export type SendContactEmailInput = {
   locale: string
 }
 
-export type SendResult =
-  | { ok: true }
-  | { ok: false; reason: 'unavailable' | 'failed' }
+export type SendResult = { ok: true } | { ok: false; reason: 'unavailable' | 'failed' }
 
 export async function sendContactEmail(input: SendContactEmailInput): Promise<SendResult> {
   const apiKey = process.env.RESEND_API_KEY

@@ -32,9 +32,7 @@ const featuredEn: FeaturedProject[] = [
       'A healthcare management platform: appointment booking, prescription tracking, and a clinician dashboard. I built the Next.js front-end, integrated a Go REST API, and wired auth + role-based views with Redux Toolkit.',
     tech: ['Next.js', 'TypeScript', 'Redux Toolkit', 'Go', 'REST API'],
     image: '/projects/medidhaka.svg',
-    links: [
-      { label: 'github', href: 'https://github.com/md-shajib' },
-    ],
+    links: [{ label: 'github', href: 'https://github.com/md-shajib' }],
   },
   {
     slug: 'career-craft',
@@ -43,9 +41,7 @@ const featuredEn: FeaturedProject[] = [
       'A job exploration UI to help students discover careers based on skills and interests. Static, fast, accessible — with category filtering and a saved-roles drawer.',
     tech: ['React', 'Tailwind CSS', 'HTML'],
     image: '/projects/career-craft.svg',
-    links: [
-      { label: 'github', href: 'https://github.com/md-shajib' },
-    ],
+    links: [{ label: 'github', href: 'https://github.com/md-shajib' }],
   },
   {
     slug: 'jobquery-ai',
@@ -54,9 +50,7 @@ const featuredEn: FeaturedProject[] = [
       'A LinkedIn job-listing Q&A agent: Selenium scrapes structured data, Llama 3.2 answers natural-language questions over the corpus through a Flask interface.',
     tech: ['Python', 'Llama 3.2', 'Selenium', 'Flask'],
     image: '/projects/jobquery-ai.svg',
-    links: [
-      { label: 'github', href: 'https://github.com/md-shajib' },
-    ],
+    links: [{ label: 'github', href: 'https://github.com/md-shajib' }],
   },
 ]
 

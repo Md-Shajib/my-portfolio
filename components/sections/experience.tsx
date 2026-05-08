@@ -38,7 +38,7 @@ export function Experience({ dict, items }: Props) {
               id={`exp-tab-${it.id}`}
               onClick={() => setActive(i)}
               className={cn(
-                'whitespace-nowrap px-4 py-3 font-mono text-xs transition-colors',
+                'px-4 py-3 font-mono text-xs whitespace-nowrap transition-colors',
                 'border-b-2 md:border-b-0 md:border-l-2',
                 active === i
                   ? 'border-accent text-accent bg-accent-soft'
@@ -70,10 +70,12 @@ export function Experience({ dict, items }: Props) {
           <p className="text-muted-foreground mt-1 font-mono text-xs">
             {item.start} — {item.end === 'present' ? dict.experience.present : item.end}
           </p>
-          <ul className="mt-4 space-y-3 text-muted-foreground">
+          <ul className="text-muted-foreground mt-4 space-y-3">
             {item.bullets.map((bullet, i) => (
               <li key={i} className="flex items-start gap-2">
-                <span className="text-accent shrink-0 leading-6" aria-hidden="true">▹</span>
+                <span className="text-accent shrink-0 leading-6" aria-hidden="true">
+                  ▹
+                </span>
                 <span>{bullet}</span>
               </li>
             ))}
