@@ -1,0 +1,14 @@
+export const site = {
+  name: 'Md Sharifuzzaman Shajib',
+  shortName: 'Shajib',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://shajib.dev',
+  email: 'shajib.dev.bd@gmail.com',
+  location: 'Satkhira, Khulna, Bangladesh',
+  github: 'https://github.com/md-shajib',
+  linkedin: 'https://www.linkedin.com/in/md-sharifuzzaman-shajib-300225150',
+  codeforces: 'https://codeforces.com/profile/shajib_2k19',
+  leetcode: 'https://leetcode.com/u/Md-Shajib/',
+  source: 'https://github.com/Md-Shajib/my-portfolio',
+  publication:
+    'https://doi.org/10.1016/j.dib.2026.112700',
+} as const
