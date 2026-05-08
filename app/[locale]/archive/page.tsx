@@ -37,16 +37,11 @@ export default async function ArchivePage({ params }: PageProps<'/[locale]/archi
   return (
     <main id="main" className="container-page py-24">
       <header className="text-center">
-        <Link
-          href={`/${locale}`}
-          className="text-accent font-mono text-xs hover:underline"
-        >
+        <Link href={`/${locale}`} className="text-accent font-mono text-xs hover:underline">
           {dict.archive.backToHome}
         </Link>
         <h1 className="mt-4 text-4xl font-bold md:text-5xl">{dict.archive.title}</h1>
-        <p className="text-muted-foreground mt-3 font-mono text-sm">
-          {dict.archive.subtitle}
-        </p>
+        <p className="text-muted-foreground mt-3 font-mono text-sm">{dict.archive.subtitle}</p>
       </header>
 
       <div className="mt-12 overflow-x-auto">
@@ -55,7 +50,7 @@ export default async function ArchivePage({ params }: PageProps<'/[locale]/archi
             <tr>
               <th className="py-3 pr-4">{dict.archive.columns.year}</th>
               <th className="py-3 pr-4">{dict.archive.columns.project}</th>
-              <th className="py-3 pr-4 hidden md:table-cell">{dict.archive.columns.builtWith}</th>
+              <th className="hidden py-3 pr-4 md:table-cell">{dict.archive.columns.builtWith}</th>
               <th className="py-3 pr-4">{dict.archive.columns.links}</th>
             </tr>
           </thead>
@@ -69,12 +64,10 @@ export default async function ArchivePage({ params }: PageProps<'/[locale]/archi
                 <td className="text-foreground py-4 pr-4 font-medium">
                   {p.title}
                   {p.summary && (
-                    <p className="text-muted-foreground mt-1 text-xs font-normal">
-                      {p.summary}
-                    </p>
+                    <p className="text-muted-foreground mt-1 text-xs font-normal">{p.summary}</p>
                   )}
                 </td>
-                <td className="text-muted-foreground py-4 pr-4 hidden font-mono text-xs md:table-cell">
+                <td className="text-muted-foreground hidden py-4 pr-4 font-mono text-xs md:table-cell">
                   {p.tech.join(' · ')}
                 </td>
                 <td className="text-muted-foreground py-4 pr-4">

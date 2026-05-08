@@ -47,10 +47,7 @@ export default async function BlogPostPage({ params }: PageProps<'/[locale]/blog
 
   return (
     <main id="main" className="container-page py-24">
-      <Link
-        href={`/${locale}/blog`}
-        className="text-accent hover:underline font-mono text-xs"
-      >
+      <Link href={`/${locale}/blog`} className="text-accent font-mono text-xs hover:underline">
         {dict.blog.backToBlog}
       </Link>
       <h1 className="mt-4 text-4xl font-bold md:text-5xl">{entry.frontmatter.title}</h1>

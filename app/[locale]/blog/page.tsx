@@ -14,9 +14,7 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps<'/[locale]/blog'>): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<'/[locale]/blog'>): Promise<Metadata> {
   const { locale } = await params
   if (!isLocale(locale)) return {}
   const dict = await getDictionary(locale)
@@ -51,10 +49,7 @@ export default async function BlogIndexPage({ params }: PageProps<'/[locale]/blo
       <ul className="mt-12 space-y-8">
         {entries.map((entry) => (
           <li key={entry.slug} className="border-border/40 border-b pb-8 last:border-b-0">
-            <Link
-              href={`/${locale}/blog/${entry.slug}`}
-              className="group block"
-            >
+            <Link href={`/${locale}/blog/${entry.slug}`} className="group block">
               <p className="text-muted-foreground font-mono text-xs">
                 {formatDate(entry.frontmatter.date, locale)} ·{' '}
                 {interpolate(dict.blog.readingTime, { minutes: entry.readingMinutes })}

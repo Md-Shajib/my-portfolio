@@ -16,8 +16,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   for (const locale of locales) {
     entries.push({ url: `${site.url}/${locale}`, lastModified: now, changeFrequency: 'monthly' })
-    entries.push({ url: `${site.url}/${locale}/archive`, lastModified: now, changeFrequency: 'monthly' })
-    entries.push({ url: `${site.url}/${locale}/blog`, lastModified: now, changeFrequency: 'weekly' })
+    entries.push({
+      url: `${site.url}/${locale}/archive`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+    })
+    entries.push({
+      url: `${site.url}/${locale}/blog`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+    })
     for (const slug of projectSlugs) {
       entries.push({
         url: `${site.url}/${locale}/projects/${slug}`,

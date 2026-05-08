@@ -47,10 +47,7 @@ export default async function ProjectPage({ params }: PageProps<'/[locale]/proje
 
   return (
     <main id="main" className="container-page py-24">
-      <Link
-        href={`/${locale}#work`}
-        className="text-accent hover:underline font-mono text-xs"
-      >
+      <Link href={`/${locale}#work`} className="text-accent font-mono text-xs hover:underline">
         ← {dict.featured.title}
       </Link>
       <h1 className="mt-4 text-4xl font-bold">{entry.frontmatter.title}</h1>
@@ -58,9 +55,7 @@ export default async function ProjectPage({ params }: PageProps<'/[locale]/proje
         {formatDate(entry.frontmatter.date, locale)}
       </p>
       {entry.frontmatter.description && (
-        <p className="text-muted-foreground mt-4 max-w-prose">
-          {entry.frontmatter.description}
-        </p>
+        <p className="text-muted-foreground mt-4 max-w-prose">{entry.frontmatter.description}</p>
       )}
       {entry.frontmatter.tags && (
         <ul className="text-muted-foreground mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs">

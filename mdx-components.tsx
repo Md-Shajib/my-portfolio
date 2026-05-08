@@ -6,12 +6,18 @@ const components: MDXComponents = {
   h1: (props) => <h1 className="mt-10 text-3xl font-bold" {...props} />,
   h2: (props) => <h2 className="mt-10 text-2xl font-bold" {...props} />,
   h3: (props) => <h3 className="mt-8 text-xl font-bold" {...props} />,
-  p: (props) => <p className="mt-5 leading-relaxed text-foreground" {...props} />,
+  p: (props) => <p className="text-foreground mt-5 leading-relaxed" {...props} />,
   a: ({ href = '', children, ...rest }) => {
     const isExternal = /^https?:\/\//.test(href)
     if (isExternal) {
       return (
-        <a href={href} target="_blank" rel="noreferrer" className="text-accent hover:underline" {...rest}>
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="text-accent hover:underline"
+          {...rest}
+        >
           {children}
         </a>
       )
@@ -31,10 +37,7 @@ const components: MDXComponents = {
     />
   ),
   pre: (props) => (
-    <pre
-      className="bg-card mt-6 overflow-x-auto rounded p-4 font-mono text-sm"
-      {...props}
-    />
+    <pre className="bg-card mt-6 overflow-x-auto rounded p-4 font-mono text-sm" {...props} />
   ),
   code: (props) => (
     <code

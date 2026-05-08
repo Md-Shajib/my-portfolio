@@ -63,10 +63,7 @@ async function readEntry(kind: ContentKind, file: string): Promise<ContentEntry 
   }
 }
 
-export async function listEntries(
-  kind: ContentKind,
-  locale: Locale
-): Promise<ContentEntry[]> {
+export async function listEntries(kind: ContentKind, locale: Locale): Promise<ContentEntry[]> {
   const files = await readDir(kind)
   const entries: ContentEntry[] = []
   const bySlug = new Map<string, ContentEntry>()
