@@ -1,0 +1,25 @@
+---
+title: 'JobQueryAI'
+description: 'A LinkedIn job-listing Q&A agent powered by Llama 3.2, Selenium, and Flask.'
+date: '2024-12-20'
+tags: ['Python', 'Llama 3.2', 'Selenium', 'Flask']
+cover: '/projects/jobquery-ai.svg'
+---
+
+## Overview
+
+JobQueryAI lets you ask natural-language questions across a corpus of recently scraped LinkedIn job listings — "show me Go roles in Dhaka with remote-friendly hours" — and get focused answers instead of a hundred tabs.
+
+## Stack
+
+Selenium handles the scrape, structured outputs land in JSON, **Llama 3.2** answers grounded queries through a thin Flask interface. Local-first by design — your scrape, your model, your data.
+
+## What I built
+
+- Resilient scraper with retry + politeness windows so the source doesn't hate you.
+- Structured corpus schema (role / company / location / remote-flag / posted-at) — the corpus is searchable without the model.
+- Prompt templates that bias the model toward citing source listings instead of hallucinating titles.
+
+## Caveats
+
+This was a study project. Run it against a corpus you control, respect platform terms of service, and don't deploy a scraper you can't stop.

@@ -1,0 +1,26 @@
+---
+title: 'MediDhaka'
+description: 'Healthcare management platform: appointments, prescriptions, and a clinician dashboard.'
+date: '2025-04-12'
+tags: ['Next.js', 'TypeScript', 'Redux Toolkit', 'Go', 'REST API']
+cover: '/projects/medidhaka.svg'
+---
+
+## Overview
+
+MediDhaka is a healthcare management platform that connects patients, doctors, and pharmacies. Patients book appointments, receive structured prescriptions, and follow up through the same dashboard the clinician uses to manage their daily roster.
+
+## Stack
+
+The frontend is **Next.js + TypeScript** with **Redux Toolkit** for client state and a thin Go REST API behind it. JWT-based auth with role-based views means the same dashboard surface adapts to patient / doctor / admin perspectives without separate apps.
+
+## What I built
+
+- Appointment booking flow with calendar conflict detection.
+- Prescription module — structured templates instead of free-text PDFs, so future searches actually work.
+- Role-based access: routes, components, and API calls all converge on a single permissions table.
+- Server-driven pagination and search with skeleton states for slow networks.
+
+## Lessons
+
+The biggest win was treating the prescription template as **structured data first, presentation later**. Once the schema was right, generating the PDF, searching across history, and computing reminders all became straightforward.
