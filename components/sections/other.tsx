@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { ExternalLink, Folder } from 'lucide-react'
 import { GitHubIcon } from '@/components/icons/brand'
-import { SectionHeading } from './section-heading'
 import type { ArchiveProject } from '@/data/projects'
 import type { Dictionary } from '@/i18n/dictionaries'
 import type { Locale } from '@/i18n/config'

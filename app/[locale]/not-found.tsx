@@ -6,7 +6,7 @@ export default function NotFound() {
       id="main"
       className="container-page flex flex-1 flex-col items-center justify-center py-24 text-center"
     >
-      <p className="text-accent font-mono text-6xl">404</p>
+      <h1 className="text-accent font-mono text-6xl">404</h1>
       <p className="text-muted-foreground mt-4 max-w-prose">
         This page wandered off. Let’s get you home.
       </p>

@@ -24,8 +24,8 @@ export type ContentEntry = {
 }
 
 const ROOTS = {
-  projects: path.join(process.cwd(), 'content', 'projects'),
-  posts: path.join(process.cwd(), 'content', 'posts'),
+  projects: path.join(/*turbopackIgnore: true*/ process.cwd(), 'content', 'projects'),
+  posts: path.join(/*turbopackIgnore: true*/ process.cwd(), 'content', 'posts'),
 } as const
 
 export type ContentKind = keyof typeof ROOTS
