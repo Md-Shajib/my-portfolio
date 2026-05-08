@@ -9,6 +9,7 @@ import { Nav } from '@/components/layout/nav'
 import { Footer } from '@/components/layout/footer'
 import { SideRail } from '@/components/layout/side-rail'
 import { EmailRail } from '@/components/layout/email-rail'
+import { JsonLd, personJsonLd, websiteJsonLd } from '@/components/seo/json-ld'
 import { getDictionary } from '@/i18n/dictionaries'
 import { isLocale, locales } from '@/i18n/config'
 import { site } from '@/lib/site'
@@ -37,11 +38,22 @@ export async function generateMetadata({ params }: LayoutProps<'/[locale]'>): Pr
       siteName: site.name,
       locale: locale === 'bn' ? 'bn_BD' : 'en_US',
       type: 'website',
+      images: [
+        {
+          url: `/api/og?title=${encodeURIComponent(dict.hero.headline)}&subtitle=${encodeURIComponent(dict.hero.eyebrow)}`,
+          width: 1200,
+          height: 630,
+          alt: dict.meta.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: dict.meta.title,
       description: dict.meta.description,
+      images: [
+        `/api/og?title=${encodeURIComponent(dict.hero.headline)}&subtitle=${encodeURIComponent(dict.hero.eyebrow)}`,
+      ],
     },
     alternates: {
       canonical: `${site.url}/${locale}`,
@@ -78,6 +90,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
     >
       <head>
         <NoFlashAccent />
+        <JsonLd data={[personJsonLd(), websiteJsonLd(locale)]} />
       </head>
       <body className="bg-background text-foreground flex min-h-full flex-col">
         <ThemeProvider>

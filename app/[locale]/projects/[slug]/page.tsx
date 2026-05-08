@@ -6,6 +6,7 @@ import { getDictionary } from '@/i18n/dictionaries'
 import { isLocale, locales } from '@/i18n/config'
 import { formatDate } from '@/lib/utils'
 import { site } from '@/lib/site'
+import { JsonLd, articleJsonLd } from '@/components/seo/json-ld'
 
 export const dynamicParams = false
 
@@ -32,6 +33,17 @@ export async function generateMetadata({
       url,
       type: 'article',
       publishedTime: entry.frontmatter.date,
+      images: [
+        `/api/og?title=${encodeURIComponent(entry.frontmatter.title)}&subtitle=${encodeURIComponent('Project')}`,
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: entry.frontmatter.title,
+      description: entry.frontmatter.description,
+      images: [
+        `/api/og?title=${encodeURIComponent(entry.frontmatter.title)}&subtitle=${encodeURIComponent('Project')}`,
+      ],
     },
   }
 }
@@ -44,9 +56,19 @@ export default async function ProjectPage({ params }: PageProps<'/[locale]/proje
   const dict = await getDictionary(locale)
 
   const { default: Mdx } = await import(`@/content/projects/${slug}.${entry.locale}.mdx`)
+  const url = `${site.url}/${locale}/projects/${slug}`
 
   return (
     <main id="main" className="container-page py-24">
+      <JsonLd
+        data={articleJsonLd({
+          url,
+          title: entry.frontmatter.title,
+          description: entry.frontmatter.description,
+          date: entry.frontmatter.date,
+          locale,
+        })}
+      />
       <Link href={`/${locale}#work`} className="text-accent font-mono text-xs hover:underline">
         ← {dict.featured.title}
       </Link>

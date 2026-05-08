@@ -5,6 +5,7 @@ import { Experience } from '@/components/sections/experience'
 import { Featured } from '@/components/sections/featured'
 import { Other } from '@/components/sections/other'
 import { Contact } from '@/components/sections/contact'
+import { Reveal } from '@/components/motion/reveal'
 import { getDictionary } from '@/i18n/dictionaries'
 import { isLocale } from '@/i18n/config'
 import { getExperience } from '@/data/experience'
@@ -21,11 +22,21 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
   return (
     <main id="main">
       <Hero dict={dict} />
-      <About dict={dict} />
-      <Experience dict={dict} items={experience} />
-      <Featured dict={dict} items={featured} />
-      <Other dict={dict} items={archive} locale={locale} />
-      <Contact dict={dict} locale={locale} />
+      <Reveal>
+        <About dict={dict} />
+      </Reveal>
+      <Reveal>
+        <Experience dict={dict} items={experience} />
+      </Reveal>
+      <Reveal>
+        <Featured dict={dict} items={featured} />
+      </Reveal>
+      <Reveal>
+        <Other dict={dict} items={archive} locale={locale} />
+      </Reveal>
+      <Reveal>
+        <Contact dict={dict} locale={locale} />
+      </Reveal>
     </main>
   )
 }

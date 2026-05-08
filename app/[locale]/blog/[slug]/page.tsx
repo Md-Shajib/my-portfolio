@@ -6,6 +6,7 @@ import { getDictionary } from '@/i18n/dictionaries'
 import { isLocale, locales } from '@/i18n/config'
 import { formatDate, interpolate } from '@/lib/utils'
 import { site } from '@/lib/site'
+import { JsonLd, articleJsonLd } from '@/components/seo/json-ld'
 
 export const dynamicParams = false
 
@@ -32,6 +33,17 @@ export async function generateMetadata({
       url,
       type: 'article',
       publishedTime: entry.frontmatter.date,
+      images: [
+        `/api/og?title=${encodeURIComponent(entry.frontmatter.title)}&subtitle=${encodeURIComponent('Blog')}`,
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: entry.frontmatter.title,
+      description: entry.frontmatter.description,
+      images: [
+        `/api/og?title=${encodeURIComponent(entry.frontmatter.title)}&subtitle=${encodeURIComponent('Blog')}`,
+      ],
     },
   }
 }
@@ -44,9 +56,19 @@ export default async function BlogPostPage({ params }: PageProps<'/[locale]/blog
   const dict = await getDictionary(locale)
 
   const { default: Mdx } = await import(`@/content/posts/${slug}.${entry.locale}.mdx`)
+  const url = `${site.url}/${locale}/blog/${slug}`
 
   return (
     <main id="main" className="container-page py-24">
+      <JsonLd
+        data={articleJsonLd({
+          url,
+          title: entry.frontmatter.title,
+          description: entry.frontmatter.description,
+          date: entry.frontmatter.date,
+          locale,
+        })}
+      />
       <Link href={`/${locale}/blog`} className="text-accent font-mono text-xs hover:underline">
         {dict.blog.backToBlog}
       </Link>
