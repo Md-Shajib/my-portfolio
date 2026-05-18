@@ -15,6 +15,7 @@ export const geistMono = Geist_Mono({
 export const hindSiliguri = Hind_Siliguri({
   variable: '--font-hind-siliguri',
   subsets: ['latin', 'bengali'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '600'],
   display: 'swap',
+  preload: false,
 })
