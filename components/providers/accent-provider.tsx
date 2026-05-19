@@ -1,10 +1,11 @@
 'use client'
 
 import { createContext, useCallback, useContext, useEffect, useSyncExternalStore } from 'react'
+import { accents, defaultAccent } from '@/lib/accent'
+import type { Accent } from '@/lib/accent'
 
-export const accents = ['emerald', 'violet', 'amber', 'sky', 'rose'] as const
-export type Accent = (typeof accents)[number]
-export const defaultAccent: Accent = 'emerald'
+export { accents, defaultAccent }
+export type { Accent }
 
 const STORAGE_KEY = 'shajib-accent'
 const STORE_EVENT = 'shajib:accent-change'
@@ -48,6 +49,8 @@ export function AccentProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-accent', accent)
+    // Sync cookie so future SSR requests read the correct accent
+    document.cookie = `${STORAGE_KEY}=${accent};path=/;max-age=31536000;SameSite=Lax`
   }, [accent])
 
   const setAccent = useCallback((next: Accent) => {
@@ -56,9 +59,9 @@ export function AccentProvider({ children }: { children: React.ReactNode }) {
     } catch {
       /* storage unavailable */
     }
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new Event(STORE_EVENT))
-    }
+    // Keep cookie in sync so server can read it for SSR flash-prevention
+    document.cookie = `${STORAGE_KEY}=${next};path=/;max-age=31536000;SameSite=Lax`
+    window.dispatchEvent(new Event(STORE_EVENT))
   }, [])
 
   return <AccentContext.Provider value={{ accent, setAccent }}>{children}</AccentContext.Provider>

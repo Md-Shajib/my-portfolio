@@ -32,20 +32,21 @@ export function About({ about }: Props) {
             ))}
           </ul>
         </div>
-        <div className="group relative mx-auto w-full max-w-70">
+        <div className="group relative mx-auto w-full max-w-[280px] md:max-w-full">
           <div className="border-accent relative overflow-hidden rounded border-3 transition-transform duration-300 group-hover:-translate-y-1">
             <Image
               src="/image.png"
               alt={about.photoAlt}
               width={400}
               height={400}
+              sizes="(max-width: 768px) 280px, 40vw"
               className="block h-auto w-full"
-              priority={false}
+              priority
             />
             <div className="bg-accent absolute top-0 left-0 h-full w-full opacity-40 transition-all duration-300 hover:opacity-0" />
           </div>
           <div
-            className="border-accent pointer-events-none absolute top-3 -right-3 -z-10 h-[88%] w-full rounded border-2 transition-all duration-300 group-hover:-top-1 group-hover:right-0"
+            className="border-accent pointer-events-none absolute top-3 -right-3 -z-10 h-[calc(100%-1.5rem)] w-full rounded border-2 transition-all duration-300 group-hover:-top-1 group-hover:right-0"
             aria-hidden="true"
             color="black"
           />

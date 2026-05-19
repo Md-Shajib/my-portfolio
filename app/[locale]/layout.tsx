@@ -4,15 +4,16 @@ import '../globals.css'
 import { geistSans, geistMono, hindSiliguri } from '@/lib/fonts'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { AccentProvider } from '@/components/providers/accent-provider'
-import { NoFlashAccent } from '@/components/providers/no-flash'
 import { Nav } from '@/components/layout/nav'
 import { Footer } from '@/components/layout/footer'
 import { SideRail } from '@/components/layout/side-rail'
 import { EmailRail } from '@/components/layout/email-rail'
+import { cookies } from 'next/headers'
 import { JsonLd, personJsonLd, websiteJsonLd } from '@/components/seo/json-ld'
 import { getDictionary } from '@/i18n/dictionaries'
 import { isLocale, locales } from '@/i18n/config'
 import { site } from '@/lib/site'
+import { accents, defaultAccent } from '@/lib/accent'
 
 export const dynamicParams = false
 
@@ -81,15 +82,19 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
   if (!isLocale(locale)) notFound()
   const dict = await getDictionary(locale)
 
+  const cookieStore = await cookies()
+  const raw = cookieStore.get('shajib-accent')?.value ?? ''
+  const accent = (accents as readonly string[]).includes(raw) ? raw : defaultAccent
+
   return (
     <html
       lang={locale}
-      data-accent="emerald"
+      data-accent={accent}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${hindSiliguri.variable} h-full antialiased`}
     >
       <head>
-        <NoFlashAccent />
         <JsonLd data={[personJsonLd(), websiteJsonLd(locale)]} />
       </head>
       <body className="bg-background text-foreground flex min-h-full flex-col">

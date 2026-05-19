@@ -10,7 +10,9 @@
   --muted-foreground: #64748b;
   --border: #e2e8f0;
   --card: #f8fafc;
+  --card-rgb: 248 250 252;
   --card-foreground: #0f172a;
+  --nav-overlay: #e2e8f0;
 
   /* Default accent: emerald */
   --accent: #10b981;
@@ -26,7 +28,9 @@
   --muted-foreground: #8892b0;
   --border: rgba(136, 146, 176, 0.18);
   --card: #112240;
+  --card-rgb: 17 34 64;
   --card-foreground: #ccd6f6;
+  --nav-overlay: #172d4a;
 
   --accent: #64ffda;
   --accent-strong: #4fd1bb;
@@ -128,7 +132,6 @@
   html {
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-    scroll-behavior: smooth;
   }
 
   body {

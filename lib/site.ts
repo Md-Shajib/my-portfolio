@@ -1,6 +1,8 @@
 export const site = {
   name: 'Md Sharifuzzaman Shajib',
+  displayName: 'Sharifuzzaman Shajib',
   shortName: 'Shajib',
+  role: 'Junior Software Engineer',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://shajib.dev',
   email: 'shajib.dev.bd@gmail.com',
   location: 'Satkhira, Khulna, Bangladesh',
